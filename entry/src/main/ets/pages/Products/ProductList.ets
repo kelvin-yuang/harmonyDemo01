@@ -14,8 +14,8 @@ class Item {
   }
 }
 
-import {PageHeader} from '../components/PageHeader'
-import {ProductItem} from '../components/ProductItem'
+import {PageHeader} from './components/PageHeader'
+import {ProductItem} from './components/ProductItem'
 
 
 @Styles function PageStyles(){

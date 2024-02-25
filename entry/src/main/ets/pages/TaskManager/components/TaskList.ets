@@ -17,38 +17,18 @@ class Task {
   status: boolean = false
 }
 
-
-@Entry
 @Component
-struct TaskManager {
-  @State taskDone: number = 0
-  @State taskTotal: number = 0
+struct TaskList {
+  @Link taskDone: number
+  @Link taskTotal: number
+
   @State taskArr: Task[] = []
 
+
   build() {
-    Column({ space: 10 }) {
-      // 进度卡
+    Column() {
       Row() {
-        Text("Task Progress").fontWeight(FontWeight.Bold).fontSize(24)
-        Stack() {
-          Progress({
-            value: this.taskDone,
-            total: this.taskTotal,
-            type: ProgressType.Ring
-          }).width(120)
-
-          Row() {
-            Text(this.taskDone.toString()).fontColor("#36D").fontSize(20)
-            Text(" / ").fontColor("#36D").fontSize(20)
-            Text(this.taskTotal.toString()).fontColor("#36D").fontSize(20)
-          }
-        }
-      }
-      .card()
-      .justifyContent(FlexAlign.SpaceEvenly)
-
-      Row() {
-        Button("New Task").width(200)
+        Button("New Task").width(200).margin({bottom:10})
           .onClick(() => {
             this.taskArr.push(new Task())
             this.taskTotal = this.taskArr.length
@@ -77,8 +57,7 @@ struct TaskManager {
       .listDirection(Axis.Vertical)
       .alignListItem(ListItemAlign.Center)
       .layoutWeight(1)
-
-    }.backgroundColor("#F1F2F3").width("100%").height("100%").padding({ left: 10, right: 10, top: 10, bottom: 10 })
+    }
 
   }
 
@@ -95,7 +74,11 @@ struct TaskManager {
     .onClick(() => {
       this.taskArr = this.taskArr.filter((item) => item.taskName !== taskName)
       this.taskTotal = this.taskArr.length
-      this.taskDone = this.taskArr.filter(item=>item.status === true).length
+      this.taskDone = this.taskArr.filter(item => item.status === true).length
     })
   }
+}
+
+export {
+  TaskList
 }
