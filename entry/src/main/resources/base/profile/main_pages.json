@@ -1,5 +1,7 @@
 {
   "src": [
-    "pages/Index"
+    "pages/BaseDemo/Router/Router",
+    "pages/BaseDemo/TaskManager/TaskManager",
+    "pages/BaseDemo/ImagesView/ImagesView"
   ]
 }

@@ -1,3 +1,5 @@
+import { Header } from '../../Components/Header'
+
 import { TaskStatistics } from './components/TaskStatistics'
 import { TaskList } from './components/TaskList'
 
@@ -11,6 +13,10 @@ struct TaskManager {
 
   build() {
     Column({ space: 10 }) {
+      Row() {
+        Header({ title: "TaskProgress" })
+      }
+
       // 进度卡
       TaskStatistics({ taskDone: this.taskDone, taskTotal: this.taskTotal })
 

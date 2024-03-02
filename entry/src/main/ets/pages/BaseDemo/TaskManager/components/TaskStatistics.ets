@@ -32,6 +32,7 @@ struct TaskStatistics {
     .justifyContent(FlexAlign.SpaceEvenly)
   }
 }
+
 export {
   TaskStatistics
 }
