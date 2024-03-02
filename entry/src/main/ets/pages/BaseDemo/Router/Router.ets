@@ -16,7 +16,9 @@ struct Router {
   @State message: string = 'Router List'
   private routers: RouterInfo[] = [
     new RouterInfo("pages/BaseDemo/TaskManager/TaskManager", "TaskManager"),
-    new RouterInfo("pages/BaseDemo/ImagesView/ImagesView", "ImagesView")
+    new RouterInfo("pages/BaseDemo/ImagesView/ImagesView", "ImagesView"),
+    new RouterInfo("pages/BaseDemo/Animations/Animations", "Animations"),
+
   ]
 
   build() {
