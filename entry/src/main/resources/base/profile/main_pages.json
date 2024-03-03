@@ -4,6 +4,7 @@
     "pages/BaseDemo/TaskManager/TaskManager",
     "pages/BaseDemo/ImagesView/ImagesView",
     "pages/BaseDemo/Animations/Animations",
-    "pages/BaseDemo/Controller/Controller"
+    "pages/BaseDemo/Controller/Controller",
+    "pages/Index"
   ]
 }

@@ -12,7 +12,7 @@ class RouterInfo {
 
 @Entry
 @Component
-struct Router {
+export struct Router {
   @State message: string = 'Router List'
   private routers: RouterInfo[] = [
     new RouterInfo("pages/BaseDemo/TaskManager/TaskManager", "TaskManager"),
