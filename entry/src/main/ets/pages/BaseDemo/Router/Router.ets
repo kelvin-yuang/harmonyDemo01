@@ -18,7 +18,7 @@ struct Router {
     new RouterInfo("pages/BaseDemo/TaskManager/TaskManager", "TaskManager"),
     new RouterInfo("pages/BaseDemo/ImagesView/ImagesView", "ImagesView"),
     new RouterInfo("pages/BaseDemo/Animations/Animations", "Animations"),
-
+    new RouterInfo("pages/BaseDemo/Controller/Controller", "Controller"),
   ]
 
   build() {

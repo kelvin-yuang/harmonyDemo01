@@ -3,6 +3,7 @@
     "pages/BaseDemo/Router/Router",
     "pages/BaseDemo/TaskManager/TaskManager",
     "pages/BaseDemo/ImagesView/ImagesView",
-    "pages/BaseDemo/Animations/Animations"
+    "pages/BaseDemo/Animations/Animations",
+    "pages/BaseDemo/Controller/Controller"
   ]
 }
