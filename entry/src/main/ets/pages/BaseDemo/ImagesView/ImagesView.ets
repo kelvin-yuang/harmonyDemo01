@@ -1,5 +1,5 @@
 import router from '@ohos.router'
-import { Header } from '../../Components/Header'
+import { HeaderBackRouter } from '../../Components/HeaderBackRouter'
 
 import { SizeChagne } from './components/SizeChange'
 import { Carousel } from './components/Carousel'
@@ -13,7 +13,7 @@ struct ImagesView {
   build() {
     Column() {
       Row() {
-        Header({ title: this.params?.title || "" })
+        HeaderBackRouter({ title: this.params?.title || "" })
       }
 
       Row() {

@@ -11,6 +11,30 @@
     {
       "name": "EntryAbility_label",
       "value": "Demo001"
+    },
+    {
+      "name": "PlayVideoAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "PlayVideoAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "AbilityPlayVideo_desc",
+      "value": "description"
+    },
+    {
+      "name": "AbilityPlayVideo_label",
+      "value": "label"
+    },
+    {
+      "name": "AbilityDocument_desc",
+      "value": "description"
+    },
+    {
+      "name": "AbilityDocument_label",
+      "value": "label"
     }
   ]
 }

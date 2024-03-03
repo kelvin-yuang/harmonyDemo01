@@ -43,6 +43,10 @@
     {
       "name": "list_item",
       "value": "#F9FAFC"
+    },
+    {
+      "name": "list_item2",
+      "value": "#0DAB51"
     }
   ]
 }

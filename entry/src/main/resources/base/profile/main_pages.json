@@ -1,10 +1,14 @@
 {
   "src": [
+    "pages/Index",
     "pages/BaseDemo/Router/Router",
     "pages/BaseDemo/TaskManager/TaskManager",
     "pages/BaseDemo/ImagesView/ImagesView",
     "pages/BaseDemo/Animations/Animations",
     "pages/BaseDemo/Controller/Controller",
-    "pages/Index"
+    "pages/BaseDemo/PageLifeCycle/PageLifeCycle",
+    "pages/BaseDemo/NewAbility/NewAbility",
+    "pages/AbilityPlayVideo/PlayVideo/PlayVideo",
+    "pages/AbilityDocument/DocumentEditor"
   ]
 }

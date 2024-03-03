@@ -7,6 +7,7 @@
     ],
     "name": "entry",
     "type": "entry",
+    "srcEntry": "./ets/abilityStage/CustomAbilityStage.ts",
     "description": "$string:module_desc",
     "mainElement": "EntryAbility",
     "deviceTypes": [
@@ -26,6 +27,7 @@
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:start_window_background",
         "exported": true,
+        "launchType": "singleton",
         "skills": [
           {
             "entities": [
@@ -36,6 +38,26 @@
             ]
           }
         ]
+      },
+      {
+        "name": "AbilityPlayVideo",
+        "srcEntry": "./ets/abilityplayvideo/AbilityPlayVideo.ts",
+        "description": "$string:AbilityPlayVideo_desc",
+        "icon": "$media:icon",
+        "label": "$string:AbilityPlayVideo_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "launchType": "specified",
+      },
+      {
+        "name": "AbilityDocument",
+        "srcEntry": "./ets/abilitydocument/AbilityDocument.ts",
+        "description": "$string:AbilityDocument_desc",
+        "icon": "$media:icon",
+        "label": "$string:AbilityDocument_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "launchType": "specified"
       }
     ]
   }

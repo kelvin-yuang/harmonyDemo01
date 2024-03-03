@@ -1,4 +1,4 @@
-import { Header } from '../../Components/Header'
+import { HeaderBackRouter } from '../../Components/HeaderBackRouter'
 
 import { TaskStatistics } from './components/TaskStatistics'
 import { TaskList } from './components/TaskList'
@@ -14,7 +14,7 @@ struct TaskManager {
   build() {
     Column({ space: 10 }) {
       Row() {
-        Header({ title: "TaskProgress" })
+        HeaderBackRouter({ title: "TaskProgress" })
       }
 
       // 进度卡
