@@ -162,64 +162,62 @@ struct Animations {
         }
       }
 
-      if (this.operatorComponentStatus) {
-        Row() {
-          Button('←').backgroundColor("#20101010")
+      Row() {
+        Button('←').backgroundColor("#20101010")
+          .onClick(async () => {
+            switch (this.angle) {
+              case 0:
+              case 90:
+              case 180:
+                this.angle = -90
+                console.log("----------1", this.angle)
+            }
+            this.fishX -= 100
+          })
+
+        Column() {
+          Button("↑").backgroundColor("#20101010")
             .onClick(async () => {
               switch (this.angle) {
-                case 0:
-                case 90:
-                case 180:
-                  this.angle = -90
-                  console.log("----------1", this.angle)
-              }
-              this.fishX -= 100
-            })
-
-          Column() {
-            Button("↑").backgroundColor("#20101010")
-              .onClick(async () => {
-                switch (this.angle) {
-                  case 180:
-                  case -90:
-                  case 90:
-                    this.angle = 0
-                    console.log("----------1", this.angle)
-                }
-                this.fishY -= 100
-              })
-            Button("↓").backgroundColor("#20101010")
-              .onClick(async () => {
-                switch (this.angle) {
-                  case 0:
-                  case -90:
-                  case 90:
-                    this.angle = 180
-
-                }
-                this.fishY += 100
-              })
-          }
-
-          Button('→').backgroundColor("#20101010")
-            .onClick(async () => {
-              switch (this.angle) {
-                case 0:
                 case 180:
                 case -90:
-                  this.angle = 90
+                case 90:
+                  this.angle = 0
                   console.log("----------1", this.angle)
-              // await this.sleep(1500)
               }
-              this.fishX += 20
-              // this.fishY -= 20
+              this.fishY -= 100
+            })
+          Button("↓").backgroundColor("#20101010")
+            .onClick(async () => {
+              switch (this.angle) {
+                case 0:
+                case -90:
+                case 90:
+                  this.angle = 180
+
+              }
+              this.fishY += 100
             })
         }
-        .position({ x: "8%", y: "75%" })
-        .id("operator")
-        .displayPriority(0)
-      }
 
+        Button('→').backgroundColor("#20101010")
+          .onClick(async () => {
+            switch (this.angle) {
+              case 0:
+              case 180:
+              case -90:
+                this.angle = 90
+                console.log("----------1", this.angle)
+            // await this.sleep(1500)
+            }
+            this.fishX += 20
+            // this.fishY -= 20
+          })
+      }
+      .position({ x: "8%", y: "75%" })
+      .id("operator")
+      .displayPriority(0)
+      .visibility(this.operatorComponentStatus ? Visibility.Visible : Visibility.None)
 
     }
     .width('100%')
