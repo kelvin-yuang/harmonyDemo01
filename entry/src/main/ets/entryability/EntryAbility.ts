@@ -4,16 +4,16 @@ import window from '@ohos.window';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want, launchParam) {
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
+    hilog.info(0x0000, 'testTag', '%{private}s', 'Entry Ability onCreate');
   }
 
   onDestroy() {
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onDestroy');
+    hilog.info(0x0000, 'testTag', '%{private}s', 'Entry Ability onDestroy');
   }
 
   onWindowStageCreate(windowStage: window.WindowStage) {
     // Main window is created, set main page for this ability
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+    hilog.info(0x0000, 'testTag', '%{private}s', 'Entry Ability onWindowStageCreate');
 
     windowStage.loadContent('pages/Index', (err, data) => {
       if (err.code) {
@@ -26,12 +26,12 @@ export default class EntryAbility extends UIAbility {
 
   onWindowStageDestroy() {
     // Main window is destroyed, release UI related resources
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
+    hilog.info(0x0000, 'testTag', '%{private}s', 'Entry Ability onWindowStageDestroy');
   }
 
   onForeground() {
     // Ability has brought to foreground
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onForeground');
+    hilog.info(0x0000, 'testTag', '%{private}s', 'Entry Ability onForeground');
   }
 
   onBackground() {

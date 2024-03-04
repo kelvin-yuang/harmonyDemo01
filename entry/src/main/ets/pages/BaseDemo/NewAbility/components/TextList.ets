@@ -74,6 +74,7 @@ export struct TextList {
                       primaryButton: {
                         value: "Yes",
                         action: () => {
+                          /* TODO */
                           this.textArr.splice(index, 1)
                         }
                       },
