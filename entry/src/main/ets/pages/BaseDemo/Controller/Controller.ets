@@ -1,6 +1,8 @@
 // @ts-nocheck
 import { TouchEvent } from '@ohos.multimodalInput.touchEvent'
 import curves from '@ohos.curves'
+import common from '@ohos.app.ability.common';
+import {toChangeScreenLandscape} from '../../Utils/Utils';
 
 @Entry
 @Component
@@ -19,6 +21,11 @@ struct Controller {
   cos: number = 0
   speed: number = 0
   taskId: number = -1
+
+  private context = getContext(this) as common.UIAbilityContext;
+  aboutToAppear() {
+    toChangeScreenLandscape(this.context)
+  }
 
   build() {
     Column() {

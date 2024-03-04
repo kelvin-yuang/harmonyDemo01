@@ -1,6 +1,7 @@
 import router from '@ohos.router';
+import common from '@ohos.app.ability.common';
+import { calculateAngle,toChangeScreenLandscape } from '../../Utils/Utils'
 
-import { calculateAngle } from '../../Utils/Utils'
 
 @Entry
 @Component
@@ -16,6 +17,11 @@ struct Animations {
   private timer: any
   @State operatorComponentStatus: boolean = false
   @State timerCounter: number = 0
+
+  private context = getContext(this) as common.UIAbilityContext;
+  aboutToAppear() {
+    toChangeScreenLandscape(this.context)
+  }
 
   sleep(delay) {
     for (var t = Date.now(); Date.now() - t <= delay; ) ;

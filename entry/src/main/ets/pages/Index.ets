@@ -1,4 +1,8 @@
+import common from '@ohos.app.ability.common';
+import hilog from '@ohos.hilog';
 import { Router } from './BaseDemo/Router/Router'
+import {toChangeScreenVertical} from './Utils/Utils'
+
 
 @Entry
 @Component
@@ -6,23 +10,25 @@ struct Index {
   @State message: string = 'Index Page'
 
   aboutToAppear() {
-    console.log(this.message, "----1 aboutToAppear")
+    hilog.info(0x0000, 'testTag', '%{private}s', '--------Index 1 aboutToAppear');
   }
 
+  private context = getContext(this) as common.UIAbilityContext;
   onPageShow() {
-    console.log(this.message, "----2 onPageShow")
+    hilog.info(0x0000, 'testTag', '%{private}s', '--------Index 2 onPageShow');
+    toChangeScreenVertical(this.context)
   }
 
   onBackPress() {
-    console.log(this.message, "----3 onBackPress")
+    hilog.info(0x0000, 'testTag', '%{private}s', '--------Index 3 onBackPress');
   }
 
   onPageHide() {
-    console.log(this.message, "----4 onPageHide")
+    hilog.info(0x0000, 'testTag', '%{private}s', '--------Index 4 onPageHide');
   }
 
   aboutToDisappear() {
-    console.log(this.message, "----5 aboutToDisappear")
+    hilog.info(0x0000, 'testTag', '%{private}s', '--------Index 5 aboutToDisappear');
   }
 
   build() {
