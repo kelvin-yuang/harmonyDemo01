@@ -10,7 +10,7 @@ struct Controller {
   @State fishX: number = 100
   @State fishY: number = 120
   @State angle: number = 0
-  @State src: Resource = $rawfile("GIF/B001.gif")
+  @State src: Resource = $rawfile("GIF/B001B.gif")
   @State maxRadius: number = 100
   @State radius: number = 20
   @State centerX: number = 120
@@ -51,7 +51,13 @@ struct Controller {
       .position({ x: 0, y: 120 })
       .onTouch(this.handleTouchEvent.bind(this))
 
-    }.width("100%").height("100%").backgroundColor("#f4f4fa")
+    }
+    .width("100%")
+    .height("100%")
+    // .backgroundColor("#f4f4fa")
+    .backgroundImage($rawfile('PNG/lotusPond2.png'), ImageRepeat.NoRepeat)
+    .backgroundImageSize(ImageSize.Auto)
+    .backgroundImagePosition({ x: 1, y: -820 })
   }
 
   handleTouchEvent(event: TouchEvent) {

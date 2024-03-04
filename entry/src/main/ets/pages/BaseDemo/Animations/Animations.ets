@@ -7,7 +7,7 @@ import { calculateAngle,toChangeScreenLandscape } from '../../Utils/Utils'
 @Component
 struct Animations {
   @State status: boolean = false
-  @State src: Resource = $rawfile('GIF/B001.gif')
+  @State src: Resource = $rawfile('GIF/B001B.gif')
   @State fishX: number = 320
   @State fishY: number = 700
   @State angle: number = 0
@@ -132,7 +132,7 @@ struct Animations {
               .position({ x: this.fishX, y: this.fishY })
               .rotate({ angle: this.angle, centerX: '50%', centerY: '50%' })
 
-            Image($rawfile("GIF/B001.gif"))
+            Image($rawfile("GIF/B001B.gif"))
               .width(160)
               .position({ x: this.fishX2, y: this.fishY2 })
               .rotate({ angle: this.angle2 })
@@ -228,7 +228,7 @@ struct Animations {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor("#f4f4fa")
+    // .backgroundColor("#f4f4fa")
 
   }
 }
