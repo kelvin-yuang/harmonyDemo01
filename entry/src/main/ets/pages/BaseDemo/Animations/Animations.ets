@@ -1,6 +1,7 @@
 import router from '@ohos.router';
 import common from '@ohos.app.ability.common';
 import { calculateAngle,toChangeScreenLandscape } from '../../Utils/Utils'
+import hilog from '@ohos.hilog';
 
 
 @Entry
@@ -21,6 +22,10 @@ struct Animations {
   private context = getContext(this) as common.UIAbilityContext;
   aboutToAppear() {
     toChangeScreenLandscape(this.context)
+  }
+  onPageHide() {
+    hilog.info(0x0000, 'testTag', '%{private}s', '--------Animations onPageHide');
+    clearInterval(this.timer)
   }
 
   sleep(delay) {
@@ -77,8 +82,7 @@ struct Animations {
       }
       .width("100%")
       .height(30)
-
-      .margin({ top: 5, left: 5 })
+      .margin({ top: 25, left: 5 })
       .justifyContent(FlexAlign.Start)
 
       Row() {
@@ -115,7 +119,7 @@ struct Animations {
                   this.sleep(500)
                   this.changePosition('A', tempX, tempY)
                   this.changePosition('B', tempX2, tempY2)
-
+                  hilog.info(0x0000, 'testTag', '%{private}s', `--------Animations setInterval ${this.timerCounter}`);
                 }, 4000)
 
               })
