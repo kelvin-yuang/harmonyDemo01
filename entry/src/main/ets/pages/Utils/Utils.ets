@@ -49,7 +49,7 @@ function toChangeScreenVertical(context:any){
     window.getLastWindow(context).then(res => {
       hilog.info(0x0000, 'testTag', '%{private}s', `--------VERTICAL 1 res:  ${res}`);
       let windowClass = res
-      let orientation = window.Orientation.UNSPECIFIED;
+      let orientation = window.Orientation.PORTRAIT;
       try {
         windowClass.setPreferredOrientation(orientation, (err) => {
           if (err.code) {

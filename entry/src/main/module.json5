@@ -28,6 +28,7 @@
         "startWindowBackground": "$color:start_window_background",
         "exported": true,
         "launchType": "singleton",
+        "removeMissionAfterTerminate": true,
         "skills": [
           {
             "entities": [
@@ -48,6 +49,7 @@
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:start_window_background",
         "launchType": "specified",
+        "removeMissionAfterTerminate": true
       },
       {
         "name": "AbilityDocument",
@@ -57,7 +59,8 @@
         "label": "$string:AbilityDocument_label",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:start_window_background",
-        "launchType": "specified"
+        "launchType": "specified",
+        "removeMissionAfterTerminate": true,
       }
     ]
   }
