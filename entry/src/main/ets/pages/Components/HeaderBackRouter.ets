@@ -5,7 +5,6 @@ struct HeaderBackRouter {
   private title: ResourceStr
 
   build() {
-
     Row({ space: 5 }) {
       Image($r('app.media.returnBack'))
         .width(30).fillColor("#36D")

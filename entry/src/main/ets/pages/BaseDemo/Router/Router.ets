@@ -21,8 +21,8 @@ export struct Router {
     new RouterInfo("pages/BaseDemo/Animations/Animations", "Animations"),
     new RouterInfo("pages/BaseDemo/Controller/Controller", "Controller"),
     new RouterInfo("pages/BaseDemo/PageLifeCycle/PageLifeCycle", "PageLifeCycle"),
-    new RouterInfo("pages/BaseDemo/NewAbility/NewAbility", "NewAbility")
-
+    new RouterInfo("pages/BaseDemo/NewAbility/NewAbility", "NewAbility"),
+    new RouterInfo("pages/BaseDemo/LoginAD/LoginAD", "LoginAD")
   ]
 
 

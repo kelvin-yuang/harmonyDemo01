@@ -9,6 +9,8 @@
     "pages/BaseDemo/PageLifeCycle/PageLifeCycle",
     "pages/BaseDemo/NewAbility/NewAbility",
     "pages/AbilityPlayVideo/PlayVideo/PlayVideo",
-    "pages/AbilityDocument/DocumentEditor"
+    "pages/AbilityDocument/DocumentEditor",
+    "pages/BaseDemo/LoginAD/LoginAD",
+    "pages/BaseDemo/LoginAD/MainPage"
   ]
 }
