@@ -11,6 +11,7 @@
     "pages/AbilityPlayVideo/PlayVideo/PlayVideo",
     "pages/AbilityDocument/DocumentEditor",
     "pages/BaseDemo/LoginAD/LoginAD",
-    "pages/BaseDemo/LoginAD/MainPage"
+    "pages/BaseDemo/LoginAD/MainPage",
+    "pages/BaseDemo/RaspberryPi/PiController"
   ]
 }
