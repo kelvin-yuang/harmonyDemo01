@@ -19,6 +19,16 @@ class MoveDriver {
       }
     );
   }
+  setLightColor(data:RPCData){
+    const dataFormat = {...data,jsonrpc:"2.0",id:1}
+    return http(
+      `${path}`,
+      {
+        method:"POST",
+        data:dataFormat
+      }
+    );
+  }
 }
 const moveAPI = new MoveDriver()
 export { moveAPI } ;

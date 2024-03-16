@@ -9,10 +9,9 @@ import web_webview from '@ohos.web.webview'
 @Entry
 @Component
 struct Controller {
-  @State valueR:number = 10
-  @State valueG:number = 10
-  @State valueB:number = 10
-
+  fishX: number = 0
+  fishY: number = 30
+  @State colorValue:number = 100
   @State angle: number = 0
   @State src: Resource = $rawfile("GIF/B001B.gif")
   @State maxRadius: number = 100
@@ -36,141 +35,66 @@ struct Controller {
   build() {
     Column() {
       Column() {
+        Row(){
           Image($r('app.media.turnLeft'))
             .width(60).height(60)
             .position({x:this.centerX-90,y:this.centerY-190})
-            .onTouch(
-              (e)=>{
-                this.turnWay(e,"left")
-              }
-            )
           Image($r('app.media.turnRight'))
             .width(60).height(60)
             .position({x:this.centerX+20,y:this.centerY-190})
-            .onTouch(
-              (e)=>{
-                this.turnWay(e,"right")
-              }
-            )
-      }
-      .width(240).height(100)
-      .position({x:0,y:120})
-
-      Column() {
-          // 外圆
-          Row(){
-            Circle({ width: this.maxRadius * 2, height: this.maxRadius * 2 })
-              .fill('#555')
-              .position({ x: this.centerX - this.maxRadius, y: this.centerY - this.maxRadius })
-            // 内圆
-            Circle({ width: this.radius * 2, height: this.radius * 2 })
-              .fill('#FFFFFF')
-              .position({ x: this.positionX - this.radius, y: this.positionY - this.radius })
-          }
         }
-        .width(240)
-        .height(240)
-        .justifyContent(FlexAlign.Center)
-        .position({ x: 0, y: 120 })
-        .onTouch(this.handleTouchEvent.bind(this))
+        // 外圆
+        Row(){
+          Circle({ width: this.maxRadius * 2, height: this.maxRadius * 2 })
+            .fill('#555')
+            .position({ x: this.centerX - this.maxRadius, y: this.centerY - this.maxRadius })
+          // 内圆
+          Circle({ width: this.radius * 2, height: this.radius * 2 })
+            .fill('#FFFFFF')
+            .position({ x: this.positionX - this.radius, y: this.positionY - this.radius })
+        }
+      }
+      .width(240)
+      .height("100%")
+      .justifyContent(FlexAlign.Center)
+      .position({ x: 0, y: 120 })
+      .onTouch(this.handleTouchEvent.bind(this))
 
-
-      Column({space:1}){
+      Column(){
         Row(){
           Web({
             src:$rawfile("WEB/Camera.html"),
             controller: this.controller
-          }).width(320).height(200)
-        }.margin({top:35,bottom:5})
+          }).width(320).height(240)
+        }.margin({top:35,bottom:20})
 
         Row(){
             Slider({
-              min: 0,
-              max: 255,
-              value: this.valueR,
-              step: 1,
+              min: 100,
+              max: 300,
+              value: this.colorValue,
+              step: 10,
               style: SliderStyle.InSet,
               direction: Axis.Horizontal
             })
             .width('98%')
-            .selectedColor('red')
             .blockColor('#36D')
-            .trackThickness(15)
+            .trackThickness(20)
             .showTips(true)
             .onChange((value) => {
-              this.valueR = value
-              let rgbValue = {
-                r:value,
-                g:this.valueG,
-                b:this.valueB
-              }
-              this.setLightColor(rgbValue)
+              this.colorValue = value
             })
         }
-        Row(){
-          Slider({
-            min: 0,
-            max: 255,
-            value: this.valueG,
-            step: 1,
-            style: SliderStyle.InSet,
-            direction: Axis.Horizontal
-          })
-            .width('98%')
-            .selectedColor('green')
-            .blockColor('#36D')
-            .trackThickness(15)
-            .showTips(true)
-            .onChange((value) => {
-              this.valueG = value
-              let rgbValue ={
-                r:this.valueR,
-                g:this.value,
-                b:this.valueB
-              }
-              this.setLightColor(rgbValue)
-            })
-
-        }
-        Row(){
-          Slider({
-            min: 0,
-            max: 255,
-            value: this.valueB,
-            step: 1,
-            style: SliderStyle.InSet,
-            direction: Axis.Horizontal
-          })
-            .width('98%')
-            .selectedColor('blue')
-            .blockColor('#36D')
-            .trackThickness(15)
-            .showTips(true)
-            .onChange((value) => {
-              this.valueB = value
-              let rgbValue ={
-                r:this.valueR,
-                g:this.valueG,
-                b:this.value
-              }
-              this.setLightColor(rgbValue)
-            })
-        }
-
-      }.width(320).margin({left:20})
+      }.width("33%")
 
       Column(){
 
-
-      }.width("30%").height("100%").backgroundColor("green")
-      .position({x:240+320+10})
+      }.width("30%")
 
     }
     .width("100%")
     .height("100%")
-    // .backgroundColor("#eee")
-    .flexGrow(1)
-    .flexBasis(1)
+    .backgroundColor("#999")
   }
 
   handleTouchEvent(event: TouchEvent) {
@@ -230,6 +154,8 @@ struct Controller {
           })
         break
     }
+
+
   }
 
   getDistance(x: number, y: number) {
@@ -237,7 +163,6 @@ struct Controller {
     let d = Math.sqrt(x * x + y * y)
     return Math.min(d, this.maxRadius)
   }
-
   startMoveMent(vx,vy){
     let y = -vy
     let angle = Math.atan2(vy, vx)
@@ -249,7 +174,7 @@ struct Controller {
     }
     moveAPI.movement({
       method:"SetMovementAngle",
-      params:{angle:degree}
+      params:{"angle":degree}
     })
   }
 
@@ -259,47 +184,4 @@ struct Controller {
       params:{"angle":-1}
     })
   }
-
-  turnWay(event:TouchEvent,way:string){
-    switch (event.type) {
-      case TouchType.Down:
-        this.turnTheWay(way)
-      break
-
-      case TouchType.Up:
-        this.turnTheWay("end")
-        break
-    }
-  }
-
-  turnTheWay(way){
-    let rate = 0
-    if(way==="left"){
-      rate = -0.3
-    }
-    if(way==="right"){
-      rate = 0.3
-    }
-    moveAPI.movement({
-      method:"SetMovementangularRate",
-      params:{"rate":rate}
-    })
-  }
-
-
-  setLightColor(rgbValue){
-    console.log("setLightColor",rgbValue.r,rgbValue.g,rgbValue.b)
-    moveAPI.setLightColor({
-      method:"SetSonarRGB",
-      params:{
-        index:0,
-        r:rgbValue.r,
-        g:rgbValue.g,
-        b:rgbValue.b
-      }
-    }).then((res)=>{
-      console.log("res:",JSON.stringify(res))
-    })
-  }
-
 }

@@ -29,6 +29,7 @@ export struct SizeChagne {
         direction: Axis.Horizontal
       })
         .width('98%')
+        .selectedColor('red')
         .blockColor('#36D')
         .trackThickness(20)
         .showTips(true)
